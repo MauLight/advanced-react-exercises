@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { listPeople, topDesserts } from './objects';
+import { listPeople, listPeople2, topDesserts } from './objects';
 import { useState } from 'react';
 import { ToDo } from './components/todo';
 
@@ -55,8 +55,15 @@ function App() {
         </tbody>
       </table>
       <div>
+      <h6>Chemists</h6>
         <ul>
           {listPeople}
+        </ul>
+      </div>
+      <div>
+      <h6>Not Chemists</h6>
+        <ul>
+          {listPeople2}
         </ul>
       </div>
     </div>

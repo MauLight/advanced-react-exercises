@@ -1,4 +1,15 @@
-
 .listItem {
   list-style: none !important;
+  display: flex;
+}
+
+.imgUrl {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.info {
+  padding-top: 15px;
 }
