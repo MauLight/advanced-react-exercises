@@ -1,22 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { listPeople, listPeople2, topDesserts } from './objects';
 import { useState } from 'react';
 import { ToDo } from './components/todo';
+import { filterNerds, filterNerds2 } from './objects';
 
 function App() {
 
-  const [todos, setTodos] = useState([{
-    id: 'todo1',
-    createdAt: '18.00'
-  }, {
-    id: 'todo2',
-    createdAt: '20.30'
-  }]);
-
-  console.log(todos[0].createdAt);
-
-
+  //Desserts exercise
   const desserts = [
     {
       title: 'Chocolate Cake',
@@ -33,14 +23,48 @@ function App() {
     };
   });
 
-  console.log(newDesserts);
+  //ToDos exercise
 
-
-
+  const [todos, setTodos] = useState([{
+    id: 'todo1',
+    createdAt: '18.00'
+  }, {
+    id: 'todo2',
+    createdAt: '20.30'
+  }]);
 
   const reverseOrder = () => {
     setTodos([...todos].reverse());
   }
+
+  //Lists Exercise
+
+  const ListFormat = ({ title, people }) => {
+    return (
+      <>
+        <h6>{title}</h6>
+        <ul>
+          {
+            people.map(dude => {
+              return (
+                <li className="listItem" key={dude.id}>
+                  <img className="imgUrl me-2" src={dude.imageUrl} />
+                  <div className="d-inline align-middle info">
+                    <h4>
+                      {dude.name} - {dude.profession}
+                    </h4>
+                    <p>{dude.accomplishments}</p>
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </>
+    )
+  }
+
+
 
   return (
     <div className="App">
@@ -55,16 +79,12 @@ function App() {
         </tbody>
       </table>
       <div>
-      <h6>Chemists</h6>
-        <ul>
-          {listPeople}
-        </ul>
+        <div>
+          <ListFormat title="Chemists" people={filterNerds} />
+        </div>
       </div>
       <div>
-      <h6>Not Chemists</h6>
-        <ul>
-          {listPeople2}
-        </ul>
+        <ListFormat title="Everyone else" people={filterNerds2} />
       </div>
     </div>
   );

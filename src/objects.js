@@ -53,40 +53,20 @@ const people = [{
 }];
 
 
-const filterNerds = people.filter(elem => elem.profession === 'chemist');
-const filterNerds2 = people.filter(elem => elem.profession !== 'chemist');
+export const recipes = [{
+    id: 'greek-salad',
+    name: 'Greek Salad',
+    ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+  }, {
+    id: 'hawaiian-pizza',
+    name: 'Hawaiian Pizza',
+    ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+  }, {
+    id: 'hummus',
+    name: 'Hummus',
+    ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+  }];
 
-export const listPeople = filterNerds.map(dude => {
-    return (
-        <li className="listItem" key={dude.id}>
-            <img className="imgUrl me-2" src={dude.imageUrl} />
-            <div className="d-inline align-middle info">
-                <h4>
-                    {dude.name} - {dude.profession}
-                </h4>
-                <p>{dude.accomplishments}</p>
-            </div>
-        </li>
-    )
-});
-
-export const listPeople2 = filterNerds2.map(dude => {
-    return (
-        <li className="listItem" key={dude.id}>
-            <img className="imgUrl me-2" src={dude.imageUrl} />
-            <div className="d-inline align-middle info">
-                <h4>
-                    {dude.name} - {dude.profession}
-                </h4>
-                <p>{dude.accomplishments}</p>
-            </div>
-        </li>
-    )
-});
-
-
-
-
-
-console.log(listPeople);
+export const filterNerds = people.filter(elem => elem.profession === 'chemist');
+export const filterNerds2 = people.filter(elem => elem.profession !== 'chemist');
 
