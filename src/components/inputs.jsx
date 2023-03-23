@@ -12,7 +12,8 @@ export const FormField = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        console.log(`Form and ${value} submitted!`);
+        setValue("");
 
         const files = fileInput.current.files;
         console.log(files);
@@ -25,7 +26,7 @@ export const FormField = () => {
                 <input id="text" value={value} onChange={handleChange} type="text" />
                 <label className="mx-3" htmlFor="file">File</label>
                 <input id="file" ref={fileInput} type="file" />
-                <button className="btn subBtn border rounded-0" >Submit</button>
+                <button disabled={!value} className="btn subBtn border rounded-0" >Submit</button>
             </form>
         </div>
     )

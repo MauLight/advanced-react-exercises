@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Josefin Sans', sans-serif !important;
+}
+
 .listItem {
   list-style: none !important;
   display: flex;
@@ -21,4 +37,12 @@
 .subBtn:hover {
   color: white !important;
   background-color: black !important;
+}
+
+.Feed {
+  width: 500px;
+}
+
+.range {
+  width: 100%;
 }

@@ -158,5 +158,22 @@ export const HaikuMap = () => {
             }
         </div>
     )
+};
+
+export const FeedBackForm = () => {
+    return (
+        <div className="Feed border p-3 mx-auto my-3">
+            <form>
+                <fieldset>
+                    <h2>Feedback Form</h2>
+                    <div className="field">
+                        <label htmlFor="score">Score:</label>
+                        <input className="range" id="score" type= "range" min="0" max="10" />
+                    </div>
+                    <button className="btn border rounded-0 subBtn float-end" type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    )
 }
 
