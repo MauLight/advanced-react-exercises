@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { topDesserts } from './objects';
+import { listPeople, topDesserts } from './objects';
 import { useState } from 'react';
 import { ToDo } from './components/todo';
 
@@ -16,6 +16,28 @@ function App() {
 
   console.log(todos[0].createdAt);
 
+
+  const desserts = [
+    {
+      title: 'Chocolate Cake',
+      description: 'Chocolate cake is a cake flavored with melted chocolate',
+      calories: 500,
+    }
+  ];
+
+  const newDesserts = desserts.map((dessert) => {
+    return {
+      title: dessert.title.toUpperCase(),
+      ...dessert,
+      kCal: dessert.calories / 1000,
+    };
+  });
+
+  console.log(newDesserts);
+
+
+
+
   const reverseOrder = () => {
     setTodos([...todos].reverse());
   }
@@ -27,11 +49,16 @@ function App() {
         <tbody>
           {
             todos.map((todo, index) => (
-              <ToDo id={todo.id} createdAt={todo.createdAt} />
+              <ToDo key={todo.id} id={todo.id} createdAt={todo.createdAt} />
             ))
           }
         </tbody>
       </table>
+      <div>
+        <ul>
+          {listPeople}
+        </ul>
+      </div>
     </div>
   );
 }

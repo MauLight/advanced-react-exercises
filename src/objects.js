@@ -20,4 +20,29 @@ export const topDesserts = [
         image: "https://www.elmundoeats.com/wp-content/uploads/2020/12/FP-10-Minute-Eggless-Tiramisu-For-Two-2.jpg",
         price: "$6.00"
     },
-]
+];
+
+const people = [{
+    id: 0,
+    name: 'Creola Katherine Johnson',
+    profession: 'mathematician',
+  }, {
+    id: 1,
+    name: 'Mario José Molina-Pasquel Henríquez',
+    profession: 'chemist',
+  }, {
+    id: 2,
+    name: 'Mohammad Abdus Salam',
+    profession: 'physicist',
+  }, {
+    name: 'Percy Lavon Julian',
+    profession: 'chemist',  
+  }, {
+    name: 'Subrahmanyan Chandrasekhar',
+    profession: 'astrophysicist',
+  }];
+
+ export const listPeople = people.map(dude => <li className="listItem" key={dude.id}>{dude.name} - {dude.profession}</li>);
+
+ console.log(listPeople);
+
