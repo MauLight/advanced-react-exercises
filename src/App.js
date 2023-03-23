@@ -1,27 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import { ToDo } from './components/todo';
-import { filterNerds, filterNerds2 } from './objects';
+import { filterNerds, filterNerds2, HaikuMap, Recipes, RecipiesList} from './objects';
 
 function App() {
-
-  //Desserts exercise
-  const desserts = [
-    {
-      title: 'Chocolate Cake',
-      description: 'Chocolate cake is a cake flavored with melted chocolate',
-      calories: 500,
-    }
-  ];
-
-  const newDesserts = desserts.map((dessert) => {
-    return {
-      title: dessert.title.toUpperCase(),
-      ...dessert,
-      kCal: dessert.calories / 1000,
-    };
-  });
 
   //ToDos exercise
 
@@ -47,8 +29,8 @@ function App() {
           {
             people.map(dude => {
               return (
-                <li className="listItem" key={dude.id}>
-                  <img className="imgUrl me-2" src={dude.imageUrl} />
+                <li className="listItem mb-2" key={dude.id}>
+                  <img className="imgUrl me-2" src={dude.imageUrl} alt="" />
                   <div className="d-inline align-middle info">
                     <h4>
                       {dude.name} - {dude.profession}
@@ -80,11 +62,20 @@ function App() {
       </table>
       <div>
         <div>
-          <ListFormat title="Chemists" people={filterNerds} />
+          <ListFormat key="0" title="Chemists" people={filterNerds} />
         </div>
       </div>
       <div>
-        <ListFormat title="Everyone else" people={filterNerds2} />
+        <ListFormat key="1" title="Everyone else" people={filterNerds2} />
+      </div>
+      <div>
+        <Recipes />
+      </div>
+      <div>
+        <RecipiesList />
+      </div>
+      <div>
+        <HaikuMap />
       </div>
     </div>
   );

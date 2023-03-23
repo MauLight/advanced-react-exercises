@@ -41,32 +41,122 @@ const people = [{
     profession: 'physicist',
     accomplishments: 'He was able to dress as a woman in ton square, and survived!'
 }, {
+    id: 3,
     name: 'Percy Lavon Julian',
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlTdOHc15DPoTIZxLTpie7J5G3PElVq9SDyg&usqp=CAU',
     profession: 'chemist',
     accomplishments: 'He was able to drink distilled water and survive!'
 }, {
+    id: 4,
     name: 'Subrahmanyan Chandrasekhar',
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRx98EzIYQktHbWee4t54usbgW3rcFBp3dHA&usqp=CAU',
     profession: 'astrophysicist',
     accomplishments: 'He was able to survive highschool despite such horrible name.'
 }];
 
+export const filterNerds = people.filter(elem => elem.profession === 'chemist');
+export const filterNerds2 = people.filter(elem => elem.profession !== 'chemist');
+
 
 export const recipes = [{
     id: 'greek-salad',
     name: 'Greek Salad',
     ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
-  }, {
+}, {
     id: 'hawaiian-pizza',
     name: 'Hawaiian Pizza',
     ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
-  }, {
+}, {
     id: 'hummus',
     name: 'Hummus',
     ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
-  }];
+}];
 
-export const filterNerds = people.filter(elem => elem.profession === 'chemist');
-export const filterNerds2 = people.filter(elem => elem.profession !== 'chemist');
+export const Recipes = () => {
+    return (
+        <>
+            {
+                recipes.map(elem => {
+                    return (
+                        <div key={elem.id}>
+                            <h2>{elem.name}</h2>
+                            <ul>
+                                {
+                                    elem.ingredients.map((ing, index) => <li key={index}>{ing}</li>)
+                                }
+                            </ul>
+                        </div>
+                    )
+                }
+                )
+            }
+        </>
+    )
+};
+
+export const recipes2 = [{
+    id: 'greek-salad',
+    name: 'Greek Salad',
+    ingredients: ['tomatoes', 'cucumber', 'onion', 'olives', 'feta']
+}, {
+    id: 'hawaiian-pizza',
+    name: 'Hawaiian Pizza',
+    ingredients: ['pizza crust', 'pizza sauce', 'mozzarella', 'ham', 'pineapple']
+}, {
+    id: 'hummus',
+    name: 'Hummus',
+    ingredients: ['chickpeas', 'olive oil', 'garlic cloves', 'lemon', 'tahini']
+}];
+
+const Ingredients = ({ id, name, ingredients }) => {
+    return (
+        <div key={id}>
+            <h2>{name}</h2>
+            <ul>
+                {
+                    ingredients.map((ing) =>
+                        <li key={ing}>
+                            {ing}
+                        </li>
+                    )
+                }
+            </ul>
+        </div>
+    )
+};
+
+export function RecipiesList() {
+    return (
+        <>
+            {
+                recipes2.map(elem => {
+                    return (
+                        <Ingredients {...elem} key={elem.id} />
+                    )
+                })
+            }
+        </>
+    )
+};
+
+const poem = {
+    lines: [
+        'I write, erase, rewrite',
+        'Erase again, and then',
+        'A poppy blooms.'
+    ]
+};
+
+export const HaikuMap = () => {
+    return (
+        <div>
+            {
+                poem.lines.map((elem, i) =>
+                    <li className="list-item listItem ms-3" key={i}>
+                        {i > 0 && <hr />} <p className="haiku">{elem}</p>
+                    </li>)
+            }
+        </div>
+    )
+}
 
