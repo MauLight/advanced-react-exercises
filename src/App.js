@@ -1,8 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 import { ToDo } from './components/todo';
-import { FeedBackForm, filterNerds, filterNerds2, HaikuMap, Recipes, RecipiesList} from './objects';
+import { filterNerds, filterNerds2, HaikuMap, Recipes, RecipiesList} from './objects';
 import { FormField } from './components/inputs';
+import { FeedBackForm } from './components/feedback';
 
 function App() {
 

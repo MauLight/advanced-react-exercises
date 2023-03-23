@@ -46,3 +46,7 @@ h6 {
 .range {
   width: 100%;
 }
+
+.area {
+  width: 100% !important;
+}
