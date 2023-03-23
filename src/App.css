@@ -17,3 +17,8 @@
 .haiku:hover {
   color: aqua;
 }
+
+.subBtn:hover {
+  color: white !important;
+  background-color: black !important;
+}

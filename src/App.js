@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { ToDo } from './components/todo';
 import { filterNerds, filterNerds2, HaikuMap, Recipes, RecipiesList} from './objects';
+import { FormField } from './components/inputs';
 
 function App() {
 
@@ -76,6 +77,9 @@ function App() {
       </div>
       <div>
         <HaikuMap />
+      </div>
+      <div>
+        <FormField />
       </div>
     </div>
   );
