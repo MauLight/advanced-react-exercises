@@ -1,13 +1,26 @@
 import './App.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { ToDo } from './components/todo';
-import { filterNerds, filterNerds2, HaikuMap, Recipes, RecipiesList} from './objects';
+import { filterNerds, filterNerds2, HaikuMap, Recipes, RecipiesList } from './objects';
 import { FormField } from './components/inputs';
 import { FeedBackForm } from './components/feedback';
+import { USerContext } from './components/UserContext';
 
-function App() {
+
+
+const App = () => {
 
   //ToDos exercise
+
+  const user = useContext(USerContext);
+
+  const [logUser, setLogUser] = useState({
+    name: "Mau Light",
+    email: "maulisseluz@gmail.com",
+    dob: "01/01/2000",
+  })
+
+  console.log(logUser.name);
 
   const [todos, setTodos] = useState([{
     id: 'todo1',
@@ -24,8 +37,10 @@ function App() {
   //Lists Exercise
 
   const ListFormat = ({ title, people }) => {
+
     return (
       <>
+        <h1>{logUser.name}</h1>
         <h6>{title}</h6>
         <ul>
           {
@@ -51,42 +66,47 @@ function App() {
 
 
   return (
-    <div className="App">
-      <button onClick={reverseOrder}>Reverse</button>
-      <table>
-        <tbody>
-          {
-            todos.map((todo, index) => (
-              <ToDo key={todo.id} id={todo.id} createdAt={todo.createdAt} />
-            ))
-          }
-        </tbody>
-      </table>
-      <div>
+    <USerContext.Provider value={logUser} >
+      <div className="App">
+
+        <button onClick={reverseOrder}>Reverse</button>
+        <table>
+          <tbody>
+            {
+              todos.map((todo, index) => (
+                <ToDo key={todo.id} id={todo.id} createdAt={todo.createdAt} />
+              ))
+            }
+          </tbody>
+        </table>
         <div>
-          <ListFormat key="0" title="Chemists" people={filterNerds} />
+          <div>
+            <ListFormat key="0" title="Chemists" people={filterNerds} />
+          </div>
+        </div>
+        <div>
+          <ListFormat key="1" title="Everyone else" people={filterNerds2} />
+        </div>
+        <div>
+          <Recipes />
+        </div>
+        <div>
+          <RecipiesList />
+        </div>
+        <div>
+          <HaikuMap />
+        </div>
+        <div>
+          <FormField />
+        </div>
+        <div>
+          <FeedBackForm />
+          <p>Created by {logUser.name}</p>
         </div>
       </div>
-      <div>
-        <ListFormat key="1" title="Everyone else" people={filterNerds2} />
-      </div>
-      <div>
-        <Recipes />
-      </div>
-      <div>
-        <RecipiesList />
-      </div>
-      <div>
-        <HaikuMap />
-      </div>
-      <div>
-        <FormField />
-      </div>
-      <div>
-        <FeedBackForm />
-      </div>
-    </div>
+    </USerContext.Provider>
+
   );
-}
+};
 
 export default App;

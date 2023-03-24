@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export const FeedBackForm = () => {
 
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(10);
     const [comment, setComment] = useState("");
 
     const handleChange = (e) => {
@@ -15,9 +15,22 @@ export const FeedBackForm = () => {
         setComment(e.target.value);
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (value <= 5 && comment.length <= 50) {
+            alert("Comment should be larger than 50 characters.");
+        }
+        else {
+            alert("Thanks for your feedback!");
+            setComment("");
+            setValue(10);
+        }
+        console.log("The form was executed!")
+    }
+
     return (
         <div className="Feed border p-3 mx-auto my-3">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <fieldset>
                     <h2>Feedback Form</h2>
                     <div className="field">
